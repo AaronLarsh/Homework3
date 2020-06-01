@@ -44,9 +44,9 @@ function generatePassword() {
       for (i = 0; i < charLength; i++) {
         passwordText += randomizeCharOrder()
     };
-    console.log(passwordText)
   };
 };
+    return passwordText;
 };
 
 // Add event listener to generate button
@@ -102,15 +102,20 @@ generateBtn.addEventListener("click", writePassword);
     };
     console.log(getRandomSpecialChar());
 
-//random the char order of var randomFunctArray 
-    var randomFunctArray = [
-      getRandomLower(),
-      getRandomUpper(),
-      getRandomNumber(),
-      getRandomSpecialChar()
-    ];
+
     function randomizeCharOrder() {
       return randomFunctArray[Math.floor(Math.random() * randomFunctArray.length)];
     };
+    
+    console.log(getRandomLower());
+    console.log(getRandomUpper());
+    console.log(getRandomNumber());
+    console.log(getRandomNumber());
+    console.log(getRandomNumber());
+    console.log(getRandomNumber());
+    console.log(getRandomSpecialChar());
+    console.log(randomizeCharOrder());
+    console.log(randomizeCharOrder());
+    console.log(randomizeCharOrder());
     console.log(randomizeCharOrder());
     //Math.floor(Math.random() * randomFunctArray.length)*/
