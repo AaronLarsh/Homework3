@@ -1,12 +1,14 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-//put all functions in an array
+var passSelect = document.getElementById("#password");
 var randomFunctArray = [
-  getRandomLower,
-  getRandomUpper,
-  getRandomNumber,
-  getRandomSpecialChar
+  getRandomLower(),
+  getRandomUpper(),
+  getRandomNumber(),
+  getRandomSpecialChar()
 ];
+
+
 
 // Write password to the #password input
 function writePassword() {
@@ -16,6 +18,7 @@ function writePassword() {
 };
 
 function generatePassword() {
+ 
   //prompt asking for char length
   var charLength = prompt("How many characters do you want your password? Please choose a value between 8-128.");
   //validator for for char length, if failure gives prompt to choose a value between 8-128 and exits the function
@@ -25,7 +28,7 @@ function generatePassword() {
     return ;
     //end of charlength validator
   } else {
-  // prompts asking for chracters user wants to include
+  // prompts asking what type of chracters user wants to include
     var charUpper = confirm("Do you want to have upper case characters in your password?");
     var charLower = confirm("Do you want to have lower case characters in your password?");
     var charNumb = confirm("Do you want to have numeric characters in your password?");
@@ -36,9 +39,14 @@ function generatePassword() {
       console.error("Did not choose atleast one character type")
       return ;
     } else {
-      console.log("one was chosen")
+      var i = charLength;
+      var passwordText = "";
+      for (i = 0; i < charLength; i++) {
+        passwordText += randomizeCharOrder()
     };
+    console.log(passwordText)
   };
+};
 };
 
 // Add event listener to generate button
@@ -62,15 +70,17 @@ generateBtn.addEventListener("click", writePassword);
       //3.2.2 check if uc is true
       //3.2.3 check if # is true
       //3.2.4 check if sc is true
-//4 generate password
-  //4.1 if lc is true generate function
+
+//4 generate random char functions
+  //4.1 if lowercase is true generate function
     //4.1.1 generates random lower case character
+
     function getRandomLower() {
       return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
     };
     console.log(getRandomLower());
 
-  //4.2 if us is true generate function
+  //4.2 if upper case is true generate function
     //4.2.1 generates random upper case character
     function getRandomUpper() {
       return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
@@ -93,8 +103,14 @@ generateBtn.addEventListener("click", writePassword);
     console.log(getRandomSpecialChar());
 
 //random the char order of var randomFunctArray 
+    var randomFunctArray = [
+      getRandomLower(),
+      getRandomUpper(),
+      getRandomNumber(),
+      getRandomSpecialChar()
+    ];
     function randomizeCharOrder() {
       return randomFunctArray[Math.floor(Math.random() * randomFunctArray.length)];
     };
     console.log(randomizeCharOrder());
-    //Math.floor(Math.random() * randomFunctArray.length)
+    //Math.floor(Math.random() * randomFunctArray.length)*/
