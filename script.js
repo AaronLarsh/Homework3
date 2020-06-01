@@ -1,14 +1,5 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var passSelect = document.getElementById("#password");
-var randomFunctArray = [
-  getRandomLower(),
-  getRandomUpper(),
-  getRandomNumber(),
-  getRandomSpecialChar()
-];
-
-
 
 // Write password to the #password input
 function writePassword() {
@@ -39,6 +30,37 @@ function generatePassword() {
       console.error("Did not choose atleast one character type")
       return ;
     } else {
+      //varible that holds vlaues of the comfrm prompts
+      var randomFunctArrayF = new Array();
+      console.log(randomFunctArrayF)
+      console.log(charUpper)
+
+      if(charUpper) {
+         randomFunctArrayF.push(getRandomUpper());
+      }
+      if(charLower) {
+        randomFunctArrayF.push(getRandomLower());
+      }
+      if(charNumb) {
+        randomFunctArrayF.push(getRandomNumber());
+      }
+      if(charSpecChar) {
+        randomFunctArrayF.push(getRandomSpecialChar());
+      }
+      console.log(charUpper)
+      console.log(charLower)
+      console.log(charNumb)
+      console.log(charSpecChar)
+      console.log(randomFunctArrayF)
+
+
+
+      function randomizeCharOrder() {
+        return randomFunctArrayF[Math.floor(Math.random() * randomFunctArrayF.length)];
+      };
+      console.log(randomizeCharOrder)
+      
+
       var i = charLength;
       var passwordText = "";
       for (i = 0; i < charLength; i++) {
@@ -101,21 +123,3 @@ generateBtn.addEventListener("click", writePassword);
       return specialCharList[Math.floor(Math.random() * specialCharList.length)]
     };
     console.log(getRandomSpecialChar());
-
-
-    function randomizeCharOrder() {
-      return randomFunctArray[Math.floor(Math.random() * randomFunctArray.length)];
-    };
-    
-    console.log(getRandomLower());
-    console.log(getRandomUpper());
-    console.log(getRandomNumber());
-    console.log(getRandomNumber());
-    console.log(getRandomNumber());
-    console.log(getRandomNumber());
-    console.log(getRandomSpecialChar());
-    console.log(randomizeCharOrder());
-    console.log(randomizeCharOrder());
-    console.log(randomizeCharOrder());
-    console.log(randomizeCharOrder());
-    //Math.floor(Math.random() * randomFunctArray.length)*/
