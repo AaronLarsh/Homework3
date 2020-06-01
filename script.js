@@ -30,11 +30,11 @@ function generatePassword() {
       console.error("Did not choose atleast one character type")
       return ;
     } else {
-      //varible that holds vlaues of the comfrm prompts
+      //empty array that will add getRandom fucntions if true
       var randomFunctArrayF = new Array();
       console.log(randomFunctArrayF)
       console.log(charUpper)
-
+      //if fucntion, checks if var value is true, if true then it will push function value onto array
       if(charUpper) {
          randomFunctArrayF.push(getRandomUpper());
       }
@@ -47,22 +47,20 @@ function generatePassword() {
       if(charSpecChar) {
         randomFunctArrayF.push(getRandomSpecialChar());
       }
-      console.log(charUpper)
-      console.log(charLower)
-      console.log(charNumb)
-      console.log(charSpecChar)
       console.log(randomFunctArrayF)
+// end of if 
 
-
-
+      //function to randomize the array
       function randomizeCharOrder() {
         return randomFunctArrayF[Math.floor(Math.random() * randomFunctArrayF.length)];
       };
-      console.log(randomizeCharOrder)
+      console.log(randomizeCharOrder())
       
-
+//var I is equal to charlength
       var i = charLength;
+      //var for empty string
       var passwordText = "";
+      //loop based on chralenth value, will looop function randomizecharorder and add to empty string
       for (i = 0; i < charLength; i++) {
         passwordText += randomizeCharOrder()
     };
