@@ -14,9 +14,9 @@ function generatePassword() {
   var charLength = prompt("How many characters do you want your password? Please choose a value between 8-128.");
   //validator for for char length, if failure gives prompt to choose a value between 8-128 and exits the function
   if (charLength < 8 || charLength > 128){
-    alert("Please choose a value between 8-128! Please try again!")
-    console.error("did not choose a vlaue between 8-128")
-    return ;
+    alert("Please choose a value between 8-128! Please try again!");
+    console.error("Please choose a value between 8-128! Please try again!");
+    return "Please choose a value between 8-128! Please try again!";
     //end of charlength validator
   } else {
   // prompts asking what type of chracters user wants to include
@@ -26,9 +26,9 @@ function generatePassword() {
     var charSpecChar = confirm("Do you want to have special characters in your password?");
     //conditional to check if no chracters were chosen
     if (!charUpper && !charLower && !charNumb && !charSpecChar) {
-      alert("You must choose at least one character type!")
-      console.error("Did not choose atleast one character type")
-      return ;
+      alert("You must choose at least one character type! Please try again!")
+      console.error("You must choose at least one character type! Please try again!")
+      return "Error: You must choose at least one character type! Please try again!";
     } else {
       //empty array that will add getRandom fucntions if true
       var randomFunctArrayF = new Array();
