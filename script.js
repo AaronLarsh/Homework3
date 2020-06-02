@@ -32,7 +32,7 @@ function generatePassword() {
     } else {
       //empty array that will add getRandom fucntions if true
       var randomFunctArrayF = new Array();
-      console.log(randomFunctArrayF)
+     /* console.log(randomFunctArrayF)
       console.log(charUpper)
       //if fucntion, checks if var value is true, if true then it will push function value onto array
       if(charUpper) {
@@ -47,14 +47,16 @@ function generatePassword() {
       if(charSpecChar) {
         randomFunctArrayF.push(getRandomSpecialChar());
       }
-      console.log(randomFunctArrayF)
+      console.log(randomFunctArrayF.values[0])
+      console.log(randomFunctArrayF[0])
+      console.log(randomFunctArrayF[0])
 // end of if 
 
       //function to randomize the array
       function randomizeCharOrder() {
         return randomFunctArrayF[Math.floor(Math.random() * randomFunctArrayF.length)];
       };
-      console.log(randomizeCharOrder())
+      console.log(randomizeCharOrder())*/
       
 //var I is equal to charlength
       var i = charLength;
@@ -62,11 +64,29 @@ function generatePassword() {
       var passwordText = "";
       //loop based on chralenth value, will looop function randomizecharorder and add to empty string
       for (i = 0; i < charLength; i++) {
+        if(charUpper) {
+          randomFunctArrayF.push(getRandomUpper());
+       }
+       if(charLower) {
+         randomFunctArrayF.push(getRandomLower());
+       }
+       if(charNumb) {
+         randomFunctArrayF.push(getRandomNumber());
+       }
+       if(charSpecChar) {
+         randomFunctArrayF.push(getRandomSpecialChar());
+       }
+        function randomizeCharOrder() {
+          return randomFunctArrayF[Math.floor(Math.random() * randomFunctArrayF.length)];
+        };
         passwordText += randomizeCharOrder()
     };
+    console.log(randomFunctArrayF)
+    console.log(passwordText)
   };
 };
     return passwordText;
+
 };
 
 // Add event listener to generate button
