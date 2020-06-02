@@ -24,7 +24,7 @@ function generatePassword() {
     var charLower = confirm("Do you want to have lower case characters in your password?");
     var charNumb = confirm("Do you want to have numeric characters in your password?");
     var charSpecChar = confirm("Do you want to have special characters in your password?");
-    //conditional to check if no chracters were chosen
+    //conditional to check if no chracters were chosen, if false continues on to else
     if (!charUpper && !charLower && !charNumb && !charSpecChar) {
       alert("You must choose at least one character type! Please try again!")
       console.error("You must choose at least one character type! Please try again!")
@@ -32,7 +32,7 @@ function generatePassword() {
     } else {
       //empty array that will add getRandom fucntions if true
       var randomFunctArrayF = new Array();
-//var I is equal to charlength
+      //var I is equal to charlength
       var i = charLength;
       //var for empty string
       var passwordText = "";
@@ -52,7 +52,7 @@ function generatePassword() {
          randomFunctArrayF.push(getRandomSpecialChar());
        }
        // end of if 
-      //function to randomize the array
+        //function to randomize the array
         function randomizeCharOrder() {
           return randomFunctArrayF[Math.floor(Math.random() * randomFunctArrayF.length)];
         };
